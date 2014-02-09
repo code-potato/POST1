@@ -10,8 +10,13 @@
 public class Manager {
     private Store store;
     
-    public Manager(){}
+    private Manager(){}
     
+    /**
+     * Instantiates store with a store name
+     * @param storeName
+     * @throws Exception if store has already been instantiated
+     */
     public void openStore(String storeName) throws Exception{
         if(store != null){
             throw new Exception("Store is already open!");
@@ -19,17 +24,40 @@ public class Manager {
         store = new Store(storeName);
     }
     
-    public void setupProductCatalog(String prodcutCatalogFile){
+    /**
+     * Given a filename, this method sets up the product catalog of the store.
+     * @param productCatalogFile 
+     */
+    public void setupProductCatalog(String productCatalogFile){
+        
     }
     
-    public POST getPost() throws Exception{
+    /**
+     * Initialize a new POST in store.
+     * @throws Exception if store is open, or if POST is already initialized. 
+     */
+    public void initPost() throws Exception{
         if(store == null){
-            throw new Exception("Store is already open!");
+            throw new Exception("Store is not open!");
+        }
+        store.newPost();
+    }
+    /**
+     * Retrieves POST from store.  
+     * @return
+     * @throws Exception if store is not open.
+     */
+    public Post getPost() throws Exception{
+        if(store == null){
+            throw new Exception("Store is not open!");
         }
         return store.getPost();
     }
     
-    
+    /**
+     * Instantiate manager, instantiate UI, run UI. 
+     * @param args 
+     */
     public static void main(String args[]){
         Manager manager = new Manager();
         PostUI ui = new PostUI(manager);

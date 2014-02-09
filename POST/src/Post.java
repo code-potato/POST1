@@ -3,6 +3,6 @@
  *
  * @author Michael Santer
  */
-class POST {
+class Post {
     
 }

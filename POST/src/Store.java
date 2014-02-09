@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -10,14 +5,24 @@
  */
 public class Store {
     private String name;
-    private POST post;
+    private Post post;
     
     public Store(String name){
         this.name = name;
     }
     
-    public POST getPost(){
+    public Post getPost(){
         return post;
+    }
+
+    /**
+     * Creates a new POST. 
+     * @throws Exception if POST is already initialized. 
+     */
+    public void newPost() throws Exception {
+        if (post != null)
+            throw new Exception("Post already exists!");
+        post = new Post();
     }
             
 }

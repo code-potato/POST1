@@ -7,16 +7,20 @@ import java.util.logging.Logger;
  *
  * @author Michael Santer
  * 
- * PostUI handles all user interfacing. Communicates between Manager and Post 
+ * PostUI handles all user interfacing. Communicates between Manager and Post. 
  */
 public class PostUI {
     private Manager manager;
-    private POST post;
+    private Post post;
     
     public PostUI(Manager manager){
         this.manager = manager;
     }
     
+    /**
+     * 
+     * @param manager 
+     */
     public void run(Manager manager){
         Scanner in = new Scanner(System.in);
         
@@ -26,6 +30,7 @@ public class PostUI {
         System.out.print("Please enter the name of the store: ");
         try {
             manager.openStore(in.nextLine());
+            manager.initPost();
             post = manager.getPost();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -37,8 +42,6 @@ public class PostUI {
         
         //Get transaction file name and pass off to (file reader?)
         //  (eventually this should be a loop)  //
-        System.out.print("Please enter a transaction filename: ");
-        
-        
+        System.out.print("Please enter a transaction filename: "); 
     } 
 }

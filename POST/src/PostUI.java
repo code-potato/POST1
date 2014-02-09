@@ -40,8 +40,11 @@ public class PostUI {
         System.out.print("Please enter name of Product Catalog file: ");
         manager.setupProductCatalog(in.nextLine());
         
-        //Get transaction file name and pass off to (file reader?)
-        //  (eventually this should be a loop)  //
-        System.out.print("Please enter a transaction filename: "); 
+        //Get transaction filename and pass off to (file reader?)
+        while(true){ // (create condition eventually)
+            System.out.print("Please enter a transaction filename: "); 
+            String transactFile = in.nextLine();
+            post.transact(Customer.createTransaction());
+        }
     } 
 }

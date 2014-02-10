@@ -47,9 +47,10 @@ public class PostUI {
             System.out.print("Please enter a transaction filename: "); 
             String transactFile = in.nextLine();
             
-            //request Customer class to create transactionRecord, and have
-            //post process the transaction.
-            post.transact(Customer.createTransactionRecord());
+            /*Request Customer class to get transactions from file.
+             *An available post is sent so that the customer can pass off the 
+             *transaction to the post for processing. */
+            Customer.getTransactions(transactFile, post);
         }
     } 
 }

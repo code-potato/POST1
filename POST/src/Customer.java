@@ -8,14 +8,17 @@ class Customer {
     
     /**
      * Constructor of customer is private. A new customer can only be 
-     * instantiated by calling the class method "createTransaction". This 
-     * enforces the schema that a customer must initiate a transaction. 
-     * 
-     * @param firstName
-     * @param lastName 
+     * instantiated by calling the class method "getTransactions". This 
+     * enforces the schema that a customer must initiate a transaction.  
      */
-    private Customer(String firstName, String lastName){
+    private Customer(){
+    }
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -28,25 +31,24 @@ class Customer {
     }
     
     /**
-     * This method instantiates a new customer and a new transaction. Using
-     * transaction reader, it builds a transactionRecord to be used by POST. 
+     * This method instantiates a new customer and a new transaction for every
+     * transaction record in the file. Using transaction reader, it builds a 
+     * transactionRecord, and hands off to post to process transaction.  
      * @return 
      */
-    public static TransactionRecord createTransactionRecord(){
-//        String firstName, lastName;
-//        
-//        //create customer
-//        Customer customer = new Customer(firstName, lastName);
-//        
-//        //create transaction record
-//        TransactionRecord transactionRecord = new TransactionRecord(customer);
-//        
-//        //add items to transaction record
-//        
-//        //add payment to transaction record
-//        
-//        return transactionRecord;
-        return null;
+    public static void getTransactions(String transactFile, Post post){
+        TransactionReader reader = new TransactionReader(transactFile);
+        
+        while(reader.hasMoreTransactions()){
+            //Instantiate empty customer
+            Customer customer = new Customer();
+            
+            //Construct transactionRecord for customer
+            TransactionRecord transaction = reader.getNextTransaction(customer);
+            
+            //Request POST to process the transaction
+            post.transact(transaction);
+        }
     }
     
 }

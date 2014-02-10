@@ -22,7 +22,7 @@ public class Store {
     public void newPost() throws Exception {
         if (post != null)
             throw new Exception("Post already exists!");
-        post = new Post();
+        post = new Post(this);
     }
             
 }

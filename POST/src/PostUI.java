@@ -41,10 +41,15 @@ public class PostUI {
         manager.setupProductCatalog(in.nextLine());
         
         //Get transaction filename and pass off to (file reader?)
-        while(true){ // (create condition eventually)
+        while(true){ // (create useful condition eventually)
+            
+            //get transaction file
             System.out.print("Please enter a transaction filename: "); 
             String transactFile = in.nextLine();
-            post.transact(Customer.createTransaction());
+            
+            //request Customer class to create transactionRecord, and have
+            //post process the transaction.
+            post.transact(Customer.createTransactionRecord());
         }
     } 
 }

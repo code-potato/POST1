@@ -32,7 +32,20 @@ class Customer {
      * transaction reader, it builds a transactionRecord to be used by POST. 
      * @return 
      */
-    public static TransactionRecord createTransaction(){
+    public static TransactionRecord createTransactionRecord(){
+//        String firstName, lastName;
+//        
+//        //create customer
+//        Customer customer = new Customer(firstName, lastName);
+//        
+//        //create transaction record
+//        TransactionRecord transactionRecord = new TransactionRecord(customer);
+//        
+//        //add items to transaction record
+//        
+//        //add payment to transaction record
+//        
+//        return transactionRecord;
         return null;
     }
     

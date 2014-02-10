@@ -5,7 +5,7 @@
  */
 class Post {
 
-    public void transact(Transaction transaction) {
+    public void transact(TransactionRecord transaction) {
         
     }
     

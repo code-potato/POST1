@@ -8,6 +8,6 @@
  *
  * @author Michael Santer
  */
-class Transaction {
+class Payment {
     
 }

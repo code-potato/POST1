@@ -9,7 +9,6 @@
  */
 public class Manager {
     private Store store;
-    private ProductCatalog productCatalog;
     
     private Manager(){}
     
@@ -31,10 +30,8 @@ public class Manager {
      * //@throws Exception if productCatalog has already been set up
      */
     public void setupProductCatalog(String productCatalogFile){
-        /*if(productCatalog != null){
-             throw new Exception("Product Catalog is being used!");           
-        }*/
-        productCatalog = new ProductCatalog(productCatalogFile);
+        // while has more products
+        //      store.addProductToCatalog(prodcutReader.getNextProduct)
     }
     
     /**
@@ -68,8 +65,6 @@ public class Manager {
         PostUI ui = new PostUI(manager);
         ui.run(manager);
     }
-    
-    
 }
 
 

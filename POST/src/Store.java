@@ -6,9 +6,12 @@
 public class Store {
     private String name;
     private Post post;
+    private ProductCatalog productCatalog;
     
     public Store(String name){
         this.name = name;
+        productCatalog = new ProductCatalog();
+        
     }
     
     public Post getPost(){
@@ -24,5 +27,10 @@ public class Store {
             throw new Exception("Post already exists!");
         post = new Post(this);
     }
+    
+    public void addProductToCatalog(){
+        
+    }
+    
             
 }

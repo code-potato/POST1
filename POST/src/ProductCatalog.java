@@ -15,8 +15,8 @@ public class ProductCatalog {
 
     private static ArrayList<Item> listOfItems;
     
-    public ProductCatalog(String productCatalogFile){
-
+    public ProductCatalog(){
+        
         
     }
     

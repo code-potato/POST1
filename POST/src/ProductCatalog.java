@@ -9,15 +9,19 @@
  * @author David
  */
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ProductCatalog {
 
-    private static ArrayList<Item> listOfItems;
+    //a map of UPC's and the matchem product
+    private HashMap<String,ProductSpec> catalog;
     
-    public ProductCatalog(){
-        
-        
+    public ProductCatalog(){  
+        catalog = new HashMap<String,ProductSpec>();
+    }
+    
+    public void addProductToCatalog(ProductSpec product){
+        catalog.put(product.getUPC(), product);
     }
     
 }

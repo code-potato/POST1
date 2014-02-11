@@ -12,6 +12,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.StringTokenizer;
 
 public class ProductReader {
     private FileReader in;
@@ -29,12 +30,12 @@ public class ProductReader {
         in = new FileReader(productsFile); 
         reader = new BufferedReader(in);
         
-        while(hasMoreProducts())
-            getNextProduct();
+//        while(hasMoreProducts())
+//            getNextProduct();
     }
     
     public boolean hasMoreProducts()throws IOException{
-        if((parsedSpec = reader.readLine()) != null){
+        if((parsedSpec = reader.readLine()) == null){
             return false;
         }
         else{
@@ -45,11 +46,15 @@ public class ProductReader {
     public ProductSpec getNextProduct(){
         //read next line in file
         //then create a ProductSpec instance and return it
-        //listOfItems.add(new Item(productSpec));
-        String UPC = parsedSpec.substring(0,3);
-        String description = parsedSpec.substring(9, 28);
-        String sPrice = parsedSpec.substring(34);
-        float price = Integer.parseInt(sPrice);
+        //listOfItems.add(new Item(productSpec));]
+        StringTokenizer tok = new StringTokenizer(parsedSpec);
+        //String UPC = parsedSpec.substring(0,3);
+        String UPC = tok.nextToken();
+        //String description = parsedSpec.substring(9, 28);
+        String description = tok.nextToken();
+        //String sPrice = parsedSpec.substring(34);
+        String sPrice = tok.nextToken();
+        float price = Float.parseFloat(sPrice);
         
         ProductSpec nextProduct = new ProductSpec();
         

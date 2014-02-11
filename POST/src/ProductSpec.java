@@ -17,17 +17,19 @@ public class ProductSpec {
     }
     
     public void setUPC(String UPC){ 
-        UPC = this.UPC;
+        this.UPC = UPC;
     }
     
     public void setDescription(String description){
-        description = this.description;
+        this.description = description;
     }
     
     public void setPrice(float price){
-        price = this.price;
+        this.price = price;
     }
-    
-    
-    
+
+    public String getUPC() {
+        return UPC;
+    }
+
 }

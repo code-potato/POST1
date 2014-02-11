@@ -40,7 +40,11 @@ public class PostUI {
         
         //Get name of product catalog and ask manager to initialize it. 
         System.out.print("Please enter name of Product Catalog file: ");
-        manager.setupProductCatalog(in.nextLine());
+        try {
+            manager.setupProductCatalog(in.nextLine());
+        } catch (IOException ex) {
+            System.out.println("File was not found!");
+        }
         
 
         while(true){ 

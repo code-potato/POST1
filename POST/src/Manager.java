@@ -1,4 +1,7 @@
 
+import java.io.IOException;
+
+
 /**
  *
  * @author Michael Santer
@@ -29,9 +32,12 @@ public class Manager {
      * @param productCatalogFile 
      * //@throws Exception if productCatalog has already been set up
      */
-    public void setupProductCatalog(String productCatalogFile){
-        // while has more products
-        //      store.addProductToCatalog(prodcutReader.getNextProduct)
+    public void setupProductCatalog(String productCatalogFile) throws IOException{
+        ProductReader reader = new ProductReader(productCatalogFile);
+        reader.init();
+        while(reader.hasMoreProducts()){
+            store.addProductToCatalog(reader.getNextProduct());
+        }
     }
     
     /**

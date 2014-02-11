@@ -14,8 +14,7 @@ public class Store {
     
     public Store(String name){
         this.name = name;
-        productCatalog = new ProductCatalog();
-        
+        productCatalog = new ProductCatalog(); 
     }
     
     public Post getPost(){
@@ -37,7 +36,7 @@ public class Store {
      * @param product 
      */
     public void addProductToCatalog(ProductSpec product){
-        
+        productCatalog.addProductToCatalog(product);
     }
     
             

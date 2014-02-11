@@ -11,9 +11,15 @@
 abstract class Payment {
     private double amount;
     
-    abstract public void processPayment();
+    abstract public double processPayment(double total);
 
-    void setAmount(Double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
+
+    public double getAmount() {
+        return amount;
+    }
+    
+    
 }

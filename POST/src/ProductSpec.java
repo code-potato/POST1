@@ -32,4 +32,14 @@ public class ProductSpec {
         return UPC;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+    
+    
+
 }

@@ -43,7 +43,19 @@ class TransactionRecord {
         return items.add(item);
     }
 
-    void setPayment(Payment pay) {
+    public void setPayment(Payment pay) {
         payment = pay;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public Date getDateAndTime() {
+        return dateAndTime;
+    }
+    
+    public ArrayList getItems(){
+        return items;
     }
 }

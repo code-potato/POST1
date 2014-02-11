@@ -23,5 +23,9 @@ public class ProductCatalog {
     public void addProductToCatalog(ProductSpec product){
         catalog.put(product.getUPC(), product);
     }
+
+    public boolean hasProduct(String upc) {
+        return catalog.containsKey(upc);
+    }
     
 }

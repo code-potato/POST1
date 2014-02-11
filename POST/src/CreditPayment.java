@@ -20,8 +20,8 @@ class CreditPayment extends Payment {
     }
 
     @Override
-    public void processPayment() {
-        
+    public double processPayment(double total) {
+        return 0.;
     }    
     
 }

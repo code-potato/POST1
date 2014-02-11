@@ -15,6 +15,7 @@ public class Store {
     public Store(String name){
         this.name = name;
         productCatalog = new ProductCatalog(); 
+        transactionHistory = new ArrayList<TransactionRecord>();
     }
     
     public Post getPost(){
@@ -37,7 +38,13 @@ public class Store {
      */
     public void addProductToCatalog(ProductSpec product){
         productCatalog.addProductToCatalog(product);
+    }           
+
+    public boolean hasProduct(String upc) {
+        return productCatalog.hasProduct(upc);
     }
-    
-            
+
+    public void saveTransaction(TransactionRecord transaction) {
+        transactionHistory.add(transaction);
+    }
 }

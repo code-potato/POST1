@@ -44,10 +44,11 @@ public class PostUI {
             manager.setupProductCatalog(in.nextLine());
         } catch (IOException ex) {
             System.out.println("File was not found!");
+            return;
         }
         
 
-        while(true){ 
+        for(int i=0; i<1; i++){ 
             // (create useful condition eventually)
             
             //get transaction file
@@ -63,8 +64,10 @@ public class PostUI {
                 System.out.println("File was not found!");
             } catch (IOException ex) {
                 System.out.println("Error reading file. Check file format.");
+            } catch (Exception ex){
+                System.out.println(ex.getMessage());
             }
-        
+            
         }
     } 
 }

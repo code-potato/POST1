@@ -41,7 +41,7 @@ class Customer {
      * @return 
      */
     public static void getTransactions(String transactFile, Post post) 
-            throws FileNotFoundException, IOException{
+            throws FileNotFoundException, IOException, Exception{
         TransactionReader reader = new TransactionReader(transactFile);
         
         while(reader.hasMoreTransactions()){

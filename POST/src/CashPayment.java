@@ -14,8 +14,8 @@ class CashPayment extends Payment {
     }
 
     @Override
-    public void processPayment() {
-        
+    public double processPayment(double total) {
+        return this.getAmount() - total;
     }
     
 }

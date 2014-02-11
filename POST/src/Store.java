@@ -28,7 +28,11 @@ public class Store {
         post = new Post(this);
     }
     
-    public void addProductToCatalog(){
+    /**
+     * Adds a single product to the product catalog.
+     * @param product 
+     */
+    public void addProductToCatalog(ProductSpec product){
         
     }
     

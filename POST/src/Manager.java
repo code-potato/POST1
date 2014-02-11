@@ -9,6 +9,7 @@
  */
 public class Manager {
     private Store store;
+    private ProductCatalog productCatalog;
     
     private Manager(){}
     
@@ -27,9 +28,13 @@ public class Manager {
     /**
      * Given a filename, this method sets up the product catalog of the store.
      * @param productCatalogFile 
+     * //@throws Exception if productCatalog has already been set up
      */
     public void setupProductCatalog(String productCatalogFile){
-        
+        /*if(productCatalog != null){
+             throw new Exception("Product Catalog is being used!");           
+        }*/
+        productCatalog = new ProductCatalog(productCatalogFile);
     }
     
     /**

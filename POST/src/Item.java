@@ -9,5 +9,13 @@
  * @author David
  */
 public class Item {
+    private ProductSpec productSpec;
+    private int quantity;
+    
+    public Item(){
+        
+    }
+    
+
     
 }

@@ -8,6 +8,16 @@
  *
  * @author David
  */
+
+import java.util.ArrayList;
+
 public class ProductCatalog {
+
+    private static ArrayList<Item> listOfItems;
+    
+    public ProductCatalog(String productCatalogFile){
+
+        
+    }
     
 }

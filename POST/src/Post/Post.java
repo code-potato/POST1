@@ -1,3 +1,5 @@
+package Post;
+
 
 import java.util.ArrayList;
 
@@ -23,7 +25,7 @@ class Post {
                 throw new Exception("UPC not found!");
             
             //2. calculate total
-            total += store.getProduct(item.getUPC()).getPrice();
+            total += (store.getProduct(item.getUPC()).getPrice()) * item.getQuantity();
         }
         
         //3. process payment

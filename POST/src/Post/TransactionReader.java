@@ -1,3 +1,5 @@
+package Post;
+
 import java.io.*;
 import java.util.NoSuchElementException;
 import java.util.StringTokenizer;

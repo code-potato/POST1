@@ -1,3 +1,5 @@
+package Post;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,14 +10,20 @@
  *
  * @author Michael Santer
  */
-class CashPayment extends Payment {
+class CreditPayment extends Payment {
 
-    public CashPayment() {
+    private int accountNumber;
+    
+    public CreditPayment() {
+    }
+
+    CreditPayment(int accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     @Override
     public double processPayment(double total) {
-        return this.getAmount() - total;
-    }
+        return 0.;
+    }    
     
 }

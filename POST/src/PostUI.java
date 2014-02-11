@@ -1,4 +1,6 @@
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,17 +42,25 @@ public class PostUI {
         System.out.print("Please enter name of Product Catalog file: ");
         manager.setupProductCatalog(in.nextLine());
         
-        //Get transaction filename and pass off to (file reader?)
-        while(true){ // (create useful condition eventually)
+
+        while(true){ 
+            // (create useful condition eventually)
             
             //get transaction file
             System.out.print("Please enter a transaction filename: "); 
             String transactFile = in.nextLine();
             
             /*Request Customer class to get transactions from file.
-             *An available post is sent so that the customer can pass off the 
-             *transaction to the post for processing. */
+            *An available post is sent so that the customer can pass off the
+            *transaction to the post for processing. */
+            try {
             Customer.getTransactions(transactFile, post);
+            } catch (FileNotFoundException ex) {
+                System.out.println("File was not found!");
+            } catch (IOException ex) {
+                System.out.println("Error reading file. Check file format.");
+            }
+        
         }
     } 
 }

@@ -1,4 +1,8 @@
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+
 /**
  *
  * @author Michael Santer
@@ -36,7 +40,8 @@ class Customer {
      * transactionRecord, and hands off to post to process transaction.  
      * @return 
      */
-    public static void getTransactions(String transactFile, Post post){
+    public static void getTransactions(String transactFile, Post post) 
+            throws FileNotFoundException, IOException{
         TransactionReader reader = new TransactionReader(transactFile);
         
         while(reader.hasMoreTransactions()){

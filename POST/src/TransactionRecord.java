@@ -24,6 +24,7 @@ class TransactionRecord {
         //set date and time to current date and time
         dateAndTime = new Date();
         this.customer = customer;
+        items = new ArrayList<Item>();
     }
 
     public String getCustomerFirstName() {
@@ -36,5 +37,13 @@ class TransactionRecord {
 
     public Date getDateandTime() {
         return dateAndTime;
+    }
+    
+    public boolean addItem(Item item){
+        return items.add(item);
+    }
+
+    void setPayment(Payment pay) {
+        payment = pay;
     }
 }

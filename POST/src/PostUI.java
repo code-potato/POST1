@@ -20,7 +20,7 @@ public class PostUI {
     }
     
     /**
-     * 
+     * This method handles the high level flow of the UI.
      * @param manager 
      */
     public void run(Manager manager){

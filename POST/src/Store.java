@@ -1,4 +1,7 @@
 
+import java.util.ArrayList;
+
+
 /**
  *
  * @author Michael Santer
@@ -7,6 +10,7 @@ public class Store {
     private String name;
     private Post post;
     private ProductCatalog productCatalog;
+    private ArrayList<TransactionRecord> transactionHistory;
     
     public Store(String name){
         this.name = name;

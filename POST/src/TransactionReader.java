@@ -17,13 +17,13 @@ class TransactionReader {
 
     public boolean hasMoreTransactions() {
         try {
-            if(reader.readLine() == null){
-                return false;
+            if(reader.ready()){
+                return true;
             }
         } catch (IOException ex) {
             System.out.println("AAAAAhhhhhh");
         }
-        return true;
+        return false;
     }
 
     public TransactionRecord getNextTransaction(Customer customer) throws IOException {
@@ -71,8 +71,22 @@ class TransactionReader {
 
             //if next line does specify a payment, record payment
             else{
-                Payment pay = new Payment();
-                //***fill in data for building payment object
+                Payment pay;
+                String temp = tok.nextToken();
+                if(temp.equals("CASH")){
+                    pay = new CashPayment();
+                    pay.setAmount(Double.parseDouble(tok.nextToken().replace("$", "")));
+                }
+                else if(temp.equals("CHECK")){
+                    pay = new CheckPayment();
+                    pay.setAmount(Double.parseDouble(tok.nextToken().replace("$", "")));
+                }
+                else{ //it's credit
+                    int accountNumber = Integer.parseInt(tok.nextToken());
+                    pay = (new CreditPayment(accountNumber));
+                }
+                
+                
                 transaction.setPayment(pay);
             }
             next = reader.readLine();

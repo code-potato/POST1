@@ -8,12 +8,14 @@
  *
  * @author Michael Santer
  */
-abstract class Payment {
-    private double amount;
-    
-    abstract public void processPayment();
+class CheckPayment extends Payment {
 
-    void setAmount(Double amount) {
-        this.amount = amount;
+    public CheckPayment() {
     }
+
+    @Override
+    public void processPayment() {
+        
+    }
+    
 }

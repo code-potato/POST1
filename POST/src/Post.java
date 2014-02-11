@@ -23,17 +23,19 @@ class Post {
                 throw new Exception("UPC not found!");
             
             //2. calculate total
-            total += item.getPrice();
+            total += store.getProduct(item.getUPC()).getPrice();
         }
         
         //3. process payment
-        transaction.getPayment().processPayment(total);
+        double amount = transaction.getPayment().processPayment(total);
         
         //4. save transactionRecord to store's transactionHistory
         store.saveTransaction(transaction);
         
         //5. print invoice
-        
+        Invoice invoice = new Invoice(transaction, total, store);
+        invoice.setAmountReturned(amount);
+        invoice.print();
     }
     
 }

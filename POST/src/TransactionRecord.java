@@ -34,10 +34,6 @@ class TransactionRecord {
     public String getCustomerLastName() {
         return customer.getLastName();
     }
-
-    public Date getDateandTime() {
-        return dateAndTime;
-    }
     
     public boolean addItem(Item item){
         return items.add(item);

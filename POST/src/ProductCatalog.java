@@ -27,5 +27,9 @@ public class ProductCatalog {
     public boolean hasProduct(String upc) {
         return catalog.containsKey(upc);
     }
+
+    public ProductSpec getProduct(String upc) {
+        return catalog.get(upc);
+    }
     
 }

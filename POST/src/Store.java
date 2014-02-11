@@ -43,8 +43,17 @@ public class Store {
     public boolean hasProduct(String upc) {
         return productCatalog.hasProduct(upc);
     }
+    
+    public ProductSpec getProduct(String upc){
+        return productCatalog.getProduct(upc);
+    }
 
     public void saveTransaction(TransactionRecord transaction) {
         transactionHistory.add(transaction);
     }
+
+    public String getName() {
+        return name;
+    }
+    
 }

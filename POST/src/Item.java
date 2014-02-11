@@ -15,6 +15,14 @@ public class Item {
     public Item(){
         
     }
+
+    void setProductSpec(ProductSpec productSpec) {
+        this.productSpec = productSpec;
+    }
+
+    void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
     
 
     

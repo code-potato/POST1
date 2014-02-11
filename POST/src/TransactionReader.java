@@ -49,28 +49,32 @@ class TransactionReader {
         String next = reader.readLine();
         while(next != null && !next.isEmpty() ){
             tok = new StringTokenizer(next);
-            String temp = tok.nextToken();
-            int upc; 
-            int quantity = 1;
             Item item = new Item();
-            try{
-                //if line starts with a number, its an item description 
-                upc = Integer.parseInt(temp); //will throw exception if not a number
+            ProductSpec product = new ProductSpec();
+            
+            
+            //if next line doesn't specify a payment, it must specify and item
+            if(!next.contains("CASH") && !next.contains("CHECK") && !next.contains("CREDIT")){
+                //set upc of item
+                product.setUPC(tok.nextToken());
+                item.setProductSpec(product);
+                
                 //try to get quantity
-                if(tok.hasMoreTokens()){
-                    temp = tok.nextToken();
-                    quantity = Integer.parseInt(temp);
-                }
+                if(tok.hasMoreTokens()) 
+                    item.setQuantity(Integer.parseInt(tok.nextToken()));
+                else
+                    item.setQuantity(1); 
                 
+                //add item to transaction
+                transaction.addItem(item);
             }
-            catch(NumberFormatException ex){
+
+            //if next line does specify a payment, record payment
+            else{
                 Payment pay = new Payment();
-                //if line does not start with a number, its a payment description
-                
-                //fill in data for building payment object
+                //***fill in data for building payment object
                 transaction.setPayment(pay);
             }
-            
             next = reader.readLine();
         }
         

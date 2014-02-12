@@ -25,27 +25,46 @@ public class Invoice {
     }
     
     public String toString(){
-        String invoice = store.getName() + "\n\n";
-        invoice += transaction.getCustomerFirstName();
+        
+        String invoice = "";
+        invoice += "______________________________________________________\n\n";
+        invoice += store.getName() + "\n";
+        invoice += "______________________________________________________\n\n";
+        
+        invoice += String.format("%-25s %-20s\n", "Customer Name:", "Date & Time:");
+        
+        String customerName = transaction.getCustomerFirstName();
         if(transaction.getCustomerLastName() != null)
-            invoice += " " + transaction.getCustomerLastName();
-        invoice += "\t" + transaction.getDateAndTime() + "\n";
+            customerName += " " + transaction.getCustomerLastName();
+        
+        invoice += String.format("%-25s %-20s\n\n", customerName, 
+                                transaction.getDateAndTime());
+        invoice += String.format("%-12s %-12s %-12s %-12s\n", "Item:", "QTY:", 
+                                "Unit Price:", "Subtotal:");
         
         ArrayList<Item> items = transaction.getItems();
         for(Item item : items){
             double price = store.getProduct(item.getUPC()).getPrice();
-            invoice += store.getProduct(item.getUPC()).getDescription() +"\t"+ 
-                    item.getQuantity()+"\t"+ String.format("$%.2f\t$%.2f", price, 
-                        price*item.getQuantity()) + "\n";
+            invoice += String.format("%-12s %-12s $%-12.2f $%-12.2f\n", 
+                    store.getProduct(item.getUPC()).getDescription(), 
+                    item.getQuantity(), price, price*item.getQuantity());
         }
-        invoice += "-------------------------------------\n";
-        invoice += "Total: $" + String.format("%.2f\n",total);
-        if(transaction.getPayment() instanceof CashPayment ||
-                transaction.getPayment() instanceof CheckPayment)
-            invoice += "Amount Tendered: $" + transaction.getPayment().getAmount() 
-                    + "\nAmount Returned: $" + String.format("%.2f", amountReturned);
-        else
-            invoice += "Paid by Credit Card\n";
+        
+        invoice += "------------------------------------------------------\n";
+        invoice += String.format("Total: $%.2f\n", total);
+
+        if(transaction.getPayment() instanceof CashPayment)
+            invoice += "Amount Tendered: $" + 
+                        String.format("%.2f\n",transaction.getPayment().getAmount()) 
+                    + "Amount Returned: $" + 
+                        String.format("%.2f\n", amountReturned);
+        else if(transaction.getPayment() instanceof CheckPayment)
+            invoice += "Piad by check \n";
+        else{ //if credit card
+            CreditPayment credit = (CreditPayment)transaction.getPayment();
+            invoice += "Paid by Credit Card " + credit.getAccountNumber() + "\n";
+        }
+        invoice += "\n******************************************************\n\n";
         return invoice;
     }
 

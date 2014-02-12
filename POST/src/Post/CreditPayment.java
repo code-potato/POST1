@@ -25,5 +25,11 @@ class CreditPayment extends Payment {
     public double processPayment(double total) {
         return 0.;
     }    
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+    
+    
     
 }

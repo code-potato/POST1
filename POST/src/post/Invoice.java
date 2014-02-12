@@ -1,16 +1,9 @@
-package Post;
-
+package post;
 
 import java.util.ArrayList;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
+ * Invoice handles how transactions are presented. 
  * @author Michael Santer
  */
 public class Invoice {
@@ -24,8 +17,11 @@ public class Invoice {
         this.total = total;
     }
     
+    /**
+     * Constructs the layout of a plain text invoice.
+     * @return String
+     */
     public String toString(){
-        
         String invoice = "";
         invoice += "______________________________________________________\n\n";
         invoice += store.getName() + "\n";
@@ -68,6 +64,9 @@ public class Invoice {
         return invoice;
     }
 
+    /**
+     * Prints invoice to terminal. 
+     */
     public void print() {
         System.out.println(this);
     }

@@ -1,11 +1,9 @@
-package Post;
-
+package post;
 
 import java.util.ArrayList;
 
-
 /**
- *
+ * Store contains a productCatalog, a POST, and a transactionRecord history.
  * @author Michael Santer
  */
 public class Store {
@@ -26,7 +24,7 @@ public class Store {
 
     /**
      * Creates a new POST. 
-     * @throws Exception if POST is already initialized. 
+     * @throws Exception if POST has already initialized. 
      */
     public void newPost() throws Exception {
         if (post != null)
@@ -42,14 +40,28 @@ public class Store {
         productCatalog.addProductToCatalog(product);
     }           
 
+    /**
+     * Given a upc, checks if the product exists in the productCatalog. 
+     * @param upc
+     * @return true if product exists, false if not. 
+     */
     public boolean hasProduct(String upc) {
         return productCatalog.hasProduct(upc);
     }
     
+    /**
+     * Returns the product spec for a given upc. 
+     * @param upc
+     * @return ProductSpec
+     */
     public ProductSpec getProduct(String upc){
         return productCatalog.getProduct(upc);
     }
 
+    /**
+     * Saves a single transactionRecord to transactionHistory. 
+     * @param transaction 
+     */
     public void saveTransaction(TransactionRecord transaction) {
         transactionHistory.add(transaction);
     }

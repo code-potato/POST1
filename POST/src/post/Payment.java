@@ -1,18 +1,18 @@
-package Post;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package post;
 
 /**
- *
+ * Payment is an abstract class that defines the structure for other types of
+ * payments. 
  * @author Michael Santer
  */
 abstract class Payment {
     private double amount;
     
+    /**
+     * Defines how a specific payment is processed. 
+     * @param total
+     * @return 
+     */
     abstract public double processPayment(double total);
 
     public void setAmount(Double amount) {

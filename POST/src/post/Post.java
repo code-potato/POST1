@@ -1,11 +1,12 @@
-package Post;
-
+package post;
 
 import java.util.ArrayList;
 
 
 /**
- *
+ * Post's main responsibility is to perform the transaction. This includes
+ * 1) making sure an item exists, 2)calculating the total, 3)processing payment,
+ * 4)saving transactionRecord, and 5)printing the invoice.
  * @author Michael Santer
  */
 class Post {

@@ -1,12 +1,12 @@
-package Post;
-
+package post;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 
 /**
- *
+ * TransactionRecord contains the necessary informations to describe and perform
+ * a transaction.
  * @author Michael Santer
  */
 class TransactionRecord {

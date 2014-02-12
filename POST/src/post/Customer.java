@@ -1,12 +1,10 @@
-package Post;
-
+package post;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-
 /**
- *
+ * Customer is responsible for initiating new transactions.
  * @author Michael Santer
  */
 class Customer {

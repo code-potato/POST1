@@ -1,5 +1,4 @@
-package Post;
-
+package post;
 
 import java.io.IOException;
 

@@ -1,12 +1,14 @@
-package Post;
+package post;
 
 import java.io.*;
 import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
- *
+ * TransactionReader reads a list of transactions records from a file, and 
+ * constructs the appropriate transactionRecord objects. 
  * @author Michael Santer
  */
 class TransactionReader {
@@ -17,6 +19,10 @@ class TransactionReader {
         reader = new BufferedReader(new FileReader(transactFile));
     }
 
+    /**
+     * Checks if there is more to read in the file.
+     * @return true if there are more lines to read.
+     */
     public boolean hasMoreTransactions() {
         try {
             if(reader.ready()){
@@ -28,6 +34,13 @@ class TransactionReader {
         return false;
     }
 
+    /**
+     * Reads the next transactionRecord from the file, and builds a single 
+     * transactionRecord object.
+     * @param customer
+     * @return transactionRecord
+     * @throws IOException if there is an error reading file.
+     */
     public TransactionRecord getNextTransaction(Customer customer) throws IOException {
         TransactionRecord transaction;
         
@@ -71,7 +84,7 @@ class TransactionReader {
                 transaction.addItem(item);
             }
 
-            //if next line does specify a payment, record payment
+            //if next line specifies a payment, record payment
             else{
                 Payment pay;
                 String temp = tok.nextToken();

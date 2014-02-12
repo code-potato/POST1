@@ -1,21 +1,16 @@
-package Post;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package post;
 
 /**
- *
- * @author David
+ * Item is used by transactionRecord. It holds a product specification, and
+ * the quantity that is being sold.
+ * 
+ * @author Michael Santer
  */
 public class Item {
     private ProductSpec productSpec;
     private int quantity;
     
-    public Item(){
-        
+    public Item(){   
     }
 
     public void setProductSpec(ProductSpec productSpec) {
